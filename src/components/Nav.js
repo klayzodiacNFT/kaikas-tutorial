@@ -8,12 +8,7 @@ const Nav = ({ network }) => (
   <header className="Nav">
     <div className="Nav__inner">
       <h1 className="Nav__logo">
-        <a href="/">
-          <img
-            src="images/logo-kaikas-tutorial.png"
-            alt="Kaikas Tutorial"
-          />
-        </a>
+          <h5> zodiac </h5>
       </h1>
       <div className={cx('Nav__network', {
         'Nav__network--error': isNull(network),

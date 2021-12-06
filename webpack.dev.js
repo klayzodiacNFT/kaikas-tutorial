@@ -52,5 +52,9 @@ module.exports = merge(baseConfig, {
       'process.env.version': JSON.stringify(gitRevisionPlugin.commithash().slice(0, 7)), // TODO: delete when real
     }),
     new HotModuleReplacementPlugin(),
+    new DefinePlugin({
+      DEPLOYED_ADDRESS: JSON.stringify(fs.readFileSync('deployedAddress', 'utf8').replace(/\n|\r/g, "")),
+      DEPLOYED_ABI: fs.existsSync('deployedABI') && fs.readFileSync('deployedABI', 'utf8'),
+    }),
   ],
 })

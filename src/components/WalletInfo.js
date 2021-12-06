@@ -6,7 +6,7 @@ import './WalletInfo.scss'
 const WalletInfo = ({ address, balance }) => {
   return (
     <div className="WalletInfo">
-      <h2 className="WalletInfo__title">Wallet Information</h2>
+      <h2 className="WalletInfo__title">Current Wallet</h2>
       <div className="WalletInfo__infoBox">
         <div className="WalletInfo__info">
           <span className="WalletInfo__label">Wallet Address</span>
@@ -18,7 +18,7 @@ const WalletInfo = ({ address, balance }) => {
           <span className="WalletInfo__unit">KLAY</span>
         </div>
       </div>
-      <p className="WalletInfo__faucet">
+      {/* <p className="WalletInfo__faucet">
         If you need small amount of Klay for testing.
         <a
           className="WalletInfo__link"
@@ -28,7 +28,7 @@ const WalletInfo = ({ address, balance }) => {
         >
         Run Klay Faucet
         </a>
-      </p>
+      </p> */}
     </div>
   )
 }

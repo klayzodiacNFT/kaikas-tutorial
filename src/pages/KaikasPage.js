@@ -25,6 +25,7 @@ import SmartContractDeployFDRatio from 'components/SmartContractDeployFDRatio'
 import SmartContractExecution from 'components/SmartContractExecution'
 import SmartContractExecutionFD from 'components/SmartContractExecutionFD'
 import SmartContractExecutionFDRatio from 'components/SmartContractExecutionFDRatio'
+import NFTMint from 'components/NFTMint'
 
 import './KaikasPage.scss'
 
@@ -49,6 +50,7 @@ const txTypeList = {
   'Token Transfer': 'SmartContractExecution',
   'Token Transfer (Fee Delegation)': 'SmartContractExecutionFD',
   'Token Transfer (Fee Delegation with Ratio)': 'SmartContractExecutionFDRatio',
+  'TEST_NFT Mint': 'NFTMint',
 }
 
 class KaikasPage extends Component {
@@ -118,7 +120,7 @@ class KaikasPage extends Component {
       case 'Sign Message':
           return <SignMessage from={from} />
       case 'Value Transfer':
-        return <ValueTransfer from={from} />
+        return <NFTMint from={from} />
       case 'Value Transfer (Fee Delegation)':
         return <ValueTransferFD from={from} />
       case 'Value Transfer (Fee Delegation with Ratio)':
@@ -128,7 +130,7 @@ class KaikasPage extends Component {
       case 'Value Transfer with Memo (Fee Delegation)':
         return <ValueTransferMemoFD from={from} />
       case 'Value Transfer with Memo (Fee Delegation with Ratio)':
-        return <ValueTransferMemoFDRatio from={from} />
+        return <ValueTransferMemoFDRatio from={from}/>
       case 'Smart Contract Deploy':
         return <SmartContractDeploy from={from} />
       case 'Smart Contract Deploy (Fee Delegation)':
@@ -147,6 +149,8 @@ class KaikasPage extends Component {
           return <AccountUpdateFD from={from} />
       case 'Account Update (Fee Delegation with Ratio)':
           return <AccountUpdateFDRatio from={from} />
+      case 'NFTMint':
+          return <ValueTransfer from={from} />
       default:
         return (<p className="KaikasPage__guide">Select a Transaction example :D</p>)
     }
@@ -157,15 +161,16 @@ class KaikasPage extends Component {
     const txTypeTitles = Object.keys(txTypeList)
 
     return (
-      <div className="KaikasPage">
+      <div className="Zodiac">
         <Nav network={network} />
-        <a className="KaikasPage__githubLink" href="https://github.com/klaytn/kaikas-tutorial" title="Link to Kaikas tutorial github repository">
-          <img src="images/icon-github.svg" alt="Kaikas Tutorial Github" />
-        </a>
         <div className="KaikasPage__main">
-          <WalletInfo address={account} balance={balance} />
+
+          
+          
           <div className="KaikasPage__content">
-            <Dropdown
+            <NFTMint from={account} />
+            
+            {/* <Dropdown
               className="KaikasPage__dropdown"
               placeholder="Transaction Type"
               selectedItem={txType}
@@ -178,8 +183,9 @@ class KaikasPage extends Component {
                 {txType && <GithubLink component={txTypeList[txType]} />}
               </header>
               {this.renderTxExample(txType, account)}
-            </div>
+            </div> */}
           </div>
+          <WalletInfo address={account} balance={balance} />
         </div>
       </div>
     )
