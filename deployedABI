@@ -1,0 +1,11 @@
+[
+    {
+        "constant": false,
+        "inputs": [{"name": "to", "type": "address"}],
+        "name": "transferRandom",
+        "outputs": [],
+        "payable": true,
+        "stateMutability": "payable",
+        "type": "function"
+    }
+]
